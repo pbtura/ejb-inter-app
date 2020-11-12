@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <description>This project demonstrates how to package an EJB and WAR in an EAR; this is the EAR POM file</description>
+  <display-name>ejb-in-ear-ear</display-name>
+  <module>
+    <web>
+      <web-uri>ejb-in-ear-web.war</web-uri>
+      <context-root>/ejb-in-ear</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>ejb-in-ear-ejb.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

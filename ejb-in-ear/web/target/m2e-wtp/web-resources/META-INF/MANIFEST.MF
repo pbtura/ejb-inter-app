@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Built-By: pbuchheit
+Build-Jdk: 14.0.2
+Specification-Title: Quickstart: ejb-in-ear - web
+Specification-Version: 18.0
+Specification-Vendor: JBoss by Red Hat
+Implementation-Title: Quickstart: ejb-in-ear - web
+Implementation-Version: 18.0.1.Final
+Implementation-Vendor-Id: org.wildfly.quickstarts
+Implementation-Vendor: JBoss by Red Hat
+Created-By: Maven Integration for Eclipse
+Implementation-URL: https://github.com/wildfly/quickstart/ejb-inter-app/
+ ejb-in-ear/ejb-in-ear-web
+Java-Vendor: Oracle Corporation
+Java-Version: 14.0.2
+Os-Arch: amd64
+Os-Name: Linux
+Os-Version: 4.15.0-123-generic
+Scm-Connection: scm:git:git@github.com:jboss/jboss-parent-pom.git/quicks
+ tart-parent/ejb-inter-app/ejb-in-ear/ejb-in-ear-web
+Scm-Revision: 
+Scm-Url: http://github.com/jboss/jboss-parent-pom/quickstart-parent/ejb-
+ inter-app/ejb-in-ear/ejb-in-ear-web
+

@@ -16,13 +16,13 @@
  */
 package org.jboss.as.quickstarts.ear.controller;
 
-import org.jboss.as.quickstarts.ear.ejb.GreeterEJB;
-import org.jboss.as.quickstarts.interapp.shared.Foo;
-
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.enterprise.context.SessionScoped;
+import javax.ejb.Stateless;
 import javax.inject.Named;
+
+import org.jboss.as.quickstarts.ear.ejb.Baz;
+import org.jboss.as.quickstarts.interapp.shared.Foo;
 
 import java.io.Serializable;
 
@@ -32,18 +32,16 @@ import java.io.Serializable;
  *
  * @author paul.robinson@redhat.com, 2011-12-21
  */
-@Named("greeter")
-@SessionScoped
-@Local(GreeterProvider.class)
-public class Greeter implements Serializable, GreeterProvider
+@Named("departer")
+@Stateless
+@Local(DeparterService.class)
+public class Departer implements Serializable, DeparterService
 {
 	/** Default value included to remove warning. **/
 	private static final long serialVersionUID = 1L;
-	/**
-	 * Injected GreeterEJB client
-	 */
 	@EJB
-	private GreeterEJB greeterEJB;
+	// (lookup = "Person/FooBean/local")
+	private Foo fooEJB;
 	/**
 	 * Stores the response from the call to greeterEJB.sayHello(...)
 	 */
@@ -58,7 +56,7 @@ public class Greeter implements Serializable, GreeterProvider
 	@Override
 	public void setName(String name)
 	{
-		message = greeterEJB.sayHello(name);
+		message = "You are " + getAge() + " years old. Goodbye " + name;
 	}
 
 	/**
@@ -70,5 +68,16 @@ public class Greeter implements Serializable, GreeterProvider
 	public String getMessage()
 	{
 		return message;
+	}
+
+	public int getAge()
+	{
+		return fooEJB.getAge();
+	}
+
+	public String getName()
+	{
+		// TODO Auto-generated method stub
+		return fooEJB.getName();
 	}
 }

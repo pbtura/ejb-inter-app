@@ -63,6 +63,13 @@
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
+            
+            <dependency>
+			  <groupId>org.wildfly</groupId>
+			  <artifactId>wildfly-ejb-client-bom</artifactId>
+			   <version>${version.server.bom}</version>
+			  <type>pom</type>
+			</dependency>
 
         </dependencies>
     </dependencyManagement>

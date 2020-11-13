@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.interapp.shared;
+package org.jboss.as.quickstarts.ear.ejb;
 
 import javax.ejb.Local;
 
@@ -25,7 +25,7 @@ import javax.ejb.Local;
  *
  */
 // @Local
-public interface Foo
+public interface Baz
 {
 	void setName(String name);
 

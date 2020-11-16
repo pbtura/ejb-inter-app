@@ -1,6 +1,8 @@
 package org.jboss.as.quickstarts.ear.controller;
 
-public interface GreeterProvider
+import org.jboss.as.quickstarts.interapp.shared.Foo;
+
+public interface GreeterProvider extends Foo
 {
 	/**
 	 * Invoke greeterEJB.sayHello(...) and store the message

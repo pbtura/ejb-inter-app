@@ -44,6 +44,8 @@ public class Greeter implements Serializable, GreeterProvider
 	 */
 	@EJB
 	private GreeterEJB greeterEJB;
+	@EJB
+	private Foo departerEJB;
 	/**
 	 * Stores the response from the call to greeterEJB.sayHello(...)
 	 */
@@ -58,7 +60,8 @@ public class Greeter implements Serializable, GreeterProvider
 	@Override
 	public void setName(String name)
 	{
-		message = greeterEJB.sayHello(name);
+		// message = greeterEJB.sayHello(name);
+		departerEJB.setName(name);
 	}
 
 	/**
@@ -69,6 +72,20 @@ public class Greeter implements Serializable, GreeterProvider
 	@Override
 	public String getMessage()
 	{
-		return message;
+		return "Hello. " + getName() + ". You are " + getAge() + " years old.";
+	}
+
+	@Override
+	public String getName()
+	{
+		// TODO Auto-generated method stub
+		return departerEJB.getName();
+	}
+
+	@Override
+	public int getAge()
+	{
+		// TODO Auto-generated method stub
+		return departerEJB.getAge();
 	}
 }

@@ -6,10 +6,12 @@ import javax.ejb.Stateless;
 
 import org.jboss.as.quickstarts.interapp.shared.Foo;
 
-@Stateless(mappedName = "Person/FooBean/local")
-@Remote
+//@Stateless(mappedName = "Person/FooBean/local")
+//@Remote
 public class FooBean implements Foo
 {
+	private String name = "Jane Doe";
+
 	public FooBean()
 	{
 		// TODO Auto-generated constructor stub
@@ -18,14 +20,14 @@ public class FooBean implements Foo
 	@Override
 	public void setName(String name)
 	{
-		// TODO Auto-generated method stub
+		this.name = name;
 	}
 
 	@Override
 	public String getName()
 	{
 		// TODO Auto-generated method stub
-		return "Jane Doe";
+		return name;
 	}
 
 	@Override

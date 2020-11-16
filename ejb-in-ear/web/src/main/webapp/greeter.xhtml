@@ -31,7 +31,6 @@
             <h:panelGrid columns="2">
                 <h:outputLabel>Response:</h:outputLabel>
                 <h:outputLabel value="#{greeter.message}" />
-                <h:outputLabel value="#{departer.message}" />
             </h:panelGrid>
         </h:form>
         <h:form id="greetForm">
@@ -40,8 +39,8 @@
                 <h:inputText value="#{name}" />
                 <h:commandButton id="add" value="Greet" action="#{greeter.setName(name)}">
                 </h:commandButton>
-                 <h:commandButton id="depart" value="Depart" action="#{departer.setName(name)}">
-                </h:commandButton>
+                 <!-- <h:commandButton id="depart" value="Depart" action="#{departer.setName(name)}">
+                </h:commandButton> -->
             </h:panelGrid>
         </h:form>
     </div>

@@ -18,6 +18,7 @@ package org.jboss.as.quickstarts.ear.controller;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Named;
 
@@ -32,32 +33,17 @@ import java.io.Serializable;
  *
  * @author paul.robinson@redhat.com, 2011-12-21
  */
-@Named("departer")
-@Stateless
-@Local(DeparterService.class)
-public class Departer implements Serializable, DeparterService
+// @Named("departer")
+@Stateless(name = "DeparterServiceProvider")
+@Local({ DeparterServiceProvider.class })
+@Remote({ Foo.class })
+public class Departer implements Serializable, DeparterServiceProvider
 {
 	/** Default value included to remove warning. **/
 	private static final long serialVersionUID = 1L;
-	@EJB
-	// (lookup = "Person/FooBean/local")
-	private Foo fooEJB;
-	/**
-	 * Stores the response from the call to greeterEJB.sayHello(...)
-	 */
-	private String message;
-
-	/**
-	 * Invoke greeterEJB.sayHello(...) and store the message
-	 *
-	 * @param name
-	 *            The name of the person to be greeted
-	 */
-	@Override
-	public void setName(String name)
-	{
-		message = "You are " + getAge() + " years old. Goodbye " + name;
-	}
+	// @EJB
+	// private Foo fooEJB;
+	private String name = "Jane Doe";
 
 	/**
 	 * Get the greeting message, customized with the name of the person to be greeted.
@@ -67,17 +53,22 @@ public class Departer implements Serializable, DeparterService
 	@Override
 	public String getMessage()
 	{
-		return message;
+		return "You are " + getAge() + " years old. Goodbye " + getName();
 	}
 
+	@Override
 	public int getAge()
 	{
-		return fooEJB.getAge();
+		return 75;
 	}
 
 	public String getName()
 	{
-		// TODO Auto-generated method stub
-		return fooEJB.getName();
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 }

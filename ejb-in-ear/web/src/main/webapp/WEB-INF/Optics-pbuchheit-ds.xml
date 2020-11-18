@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://www.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+  <xa-datasource connectable="false" enabled="true" jndi-name="java:jboss/datasources/jdbc/OpticsDS" pool-name="jdbc/OpticsDS" spy="false" use-ccm="true" use-java-context="true">
+    <xa-datasource-property name="DatabaseName"></xa-datasource-property>
+    <xa-datasource-property name="XaEmulation">true</xa-datasource-property>
+    <xa-datasource-property name="User"></xa-datasource-property>
+    <xa-datasource-property name="ServerName"></xa-datasource-property>
+    <xa-datasource-property name="Password"></xa-datasource-property>
+    <xa-datasource-class>net.sourceforge.jtds.jdbcx.JtdsDataSource</xa-datasource-class>
+    <driver>jdts</driver>
+    <url-property>|</url-property>
+    <new-connection-sql>select 1</new-connection-sql>
+    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+    <xa-pool>
+      <min-pool-size>10</min-pool-size>
+      <initial-pool-size>10</initial-pool-size>
+      <max-pool-size>30</max-pool-size>
+      <prefill>false</prefill>
+      <use-strict-min>false</use-strict-min>
+      <flush-strategy>FailingConnectionOnly</flush-strategy>
+      <pad-xid>false</pad-xid>
+      <wrap-xa-resource>true</wrap-xa-resource>
+    </xa-pool>
+ 
+    <validation>
+      <check-valid-connection-sql>select 1</check-valid-connection-sql>
+      <use-fast-fail>false</use-fast-fail>
+    </validation>
+    <timeout>
+      <blocking-timeout-millis>5000</blocking-timeout-millis>
+      <idle-timeout-minutes>15</idle-timeout-minutes>
+      <set-tx-query-timeout/>
+    </timeout>
+    <statement>
+      <track-statements>false</track-statements>
+    </statement>
+    <recovery no-recovery="false">
+      <recover-credential>
+        <user-name>user</user-name>
+        <password>password</password>
+      </recover-credential>
+    </recovery>
+  </xa-datasource>
+  <xa-datasource connectable="false" enabled="true" jndi-name="java:jboss/datasources/jdbc/appPhase1DS" pool-name="jdbc/appPhase1DS" spy="false" use-ccm="true" use-java-context="true">
+    <xa-datasource-property name="DatabaseName"></xa-datasource-property>
+    <xa-datasource-property name="XaEmulation">true</xa-datasource-property>
+    <xa-datasource-property name="User"></xa-datasource-property>
+    <xa-datasource-property name="ServerName"></xa-datasource-property>
+    <xa-datasource-property name="Password"></xa-datasource-property>
+    <xa-datasource-class>net.sourceforge.jtds.jdbcx.JtdsDataSource</xa-datasource-class>
+    <driver>jdts</driver>
+    <url-property>|</url-property>
+    <new-connection-sql>select 1</new-connection-sql>
+    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+    <xa-pool>
+      <min-pool-size>10</min-pool-size>
+      <initial-pool-size>10</initial-pool-size>
+      <max-pool-size>30</max-pool-size>
+      <prefill>false</prefill>
+      <use-strict-min>false</use-strict-min>
+      <flush-strategy>FailingConnectionOnly</flush-strategy>
+      <pad-xid>false</pad-xid>
+      <wrap-xa-resource>true</wrap-xa-resource>
+    </xa-pool>
+    <validation>
+      <check-valid-connection-sql>select 1</check-valid-connection-sql>
+      <use-fast-fail>false</use-fast-fail>
+    </validation>
+    <timeout>
+      <blocking-timeout-millis>5000</blocking-timeout-millis>
+      <idle-timeout-minutes>15</idle-timeout-minutes>
+      <set-tx-query-timeout/>
+    </timeout>
+    <statement>
+      <track-statements>false</track-statements>
+    </statement>
+    <recovery no-recovery="false">
+      <recover-credential>
+        <user-name>user</user-name>
+        <password>password</password>
+      </recover-credential>
+    </recovery>
+  </xa-datasource>
+</datasources>

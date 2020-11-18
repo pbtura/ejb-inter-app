@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence version="2.1"
+   xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="PersonPersistenceUnit" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/jdbc/OpticsDS</jta-data-source>
+        
+       	<mapping-file>META-INF/orm.xml</mapping-file>
+       	
+         <class>com.tura.common.domain.DataAuthor</class>
+        <class>com.tura.common.domain.Person</class>      
+        <class>com.tura.common.domain.Role</class>
+        <class>com.tura.common.domain.SessionActivity</class>
+        <!-- <class>com.tura.common.domain.UserSetting</class> -->
+        <class>org.jboss.as.quickstarts.interapp.shared.Member</class>
+        <properties>
+        	
+            <property name="org.hibernate.envers.store_data_at_delete" value="false" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.cache.use_second_level_cache" value="true" />
+            <property name="hibernate.cache.use_query_cache" value="true" />
+<!--             <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.JndiInfinispanRegionFactory" />
+            <property name="hibernate.cache.infinispan.cachemanager" value="java:CacheManager/entity" /> -->
+            <property name="hibernate.cache.region_prefix" value="_Person_" />
+            <property name="hibernate.search.default.indexBase" value="/var/lucene/18/indexes" />
+            <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+            <property name="hibernate.search.default.directory_provider" value="org.hibernate.search.store.impl.FSDirectoryProvider" />
+            <!--
+            <property name="hibernate.ejb.event.post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener" />
+            <property name="hibernate.ejb.event.post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener" />
+            <property name="hibernate.ejb.event.post-delete" value="org.hibernate.ejb.event.EJB3PostDeleteEventListener" />
+             <property name="hibernate.ejb.event.pre-collection-update" value="org.hibernate.envers.event.AuditEventListener" />
+            <property name="hibernate.ejb.event.pre-collection-remove" value="org.hibernate.envers.event.AuditEventListener" />
+            <property name="hibernate.ejb.event.post-collection-recreate" value="org.hibernate.envers.event.AuditEventListener" />
+            -->
+            <property name="jboss.entity.manager.factory.jndi.name" value="java:/PersonEMF" />
+            <property name="jboss.entity.manager.jndi.name" value="java:/PersonEM" />
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+          http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+        version="2.0">
+
+	<!-- <named-query name="Role.listPotentialChildRoles">
+
+		<query>select new com.tura.person.dto.RoleDTO(potentialChildren.id,potentialChildren.uid,potentialChildren.name,potentialChildren.description) from Role as potentialChildren where potentialChildren.id NOT in (select children.id from Role as r join r.childRoles as children where r.id=:id) and potentialChildren.id!=:id order by potentialChildren.name</query>
+		<hint name="org.hibernate.cacheable" value="false" />
+	</named-query> -->
+</entity-mappings>

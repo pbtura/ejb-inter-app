@@ -40,6 +40,48 @@
     </licenses>
 
     <dependencies>
+        
+        <!-- First declare the APIs we depend on and need for compilation.
+            All of them are provided by JBoss EAP -->
+
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--Import dependencies to hibernate packages(eg. hibernate-core)
+            depending on features you want to use like Hibernate Session used in the
+            quickstart.
+            Scope is provided because these JARs are shipped with JBoss EAP -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the JPA API, we use provided scope as the API is included in EAP -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Bean Validation Implementation 
+             Provides portable constraints such as @Email 
+             Hibernate Validator is shipped in JBoss EAP -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- hibernate-validator dependencies excluded on server dependency management yet required -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
@@ -48,6 +90,68 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.faces</groupId>
+            <artifactId>jboss-jsf-api_2.3_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.xml.bind</groupId>
+            <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-envers</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-orm</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-engine</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+	    	<groupId>org.apache.lucene</groupId>
+	    	<artifactId>lucene-core</artifactId>
+	    	<scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-queryparser</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-analyzers-common</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version> 
+		</dependency>
+		
     </dependencies>
 
     <build>

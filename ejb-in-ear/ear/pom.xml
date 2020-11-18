@@ -53,6 +53,12 @@
             <artifactId>ejb-in-ear-web</artifactId>
             <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ejb-inter-app-shared</artifactId>
+            <type>ejb</type>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -79,6 +85,12 @@
                             <artifactId>ejb-in-ear-web</artifactId>
                             <contextRoot>/ejb-in-ear</contextRoot>
                         </webModule>
+                        
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>ejb-inter-app-shared</artifactId>
+                            <!-- <bundleDir>lib</bundleDir> -->
+                        </ejbModule>
                     </modules>
                     <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                 </configuration>

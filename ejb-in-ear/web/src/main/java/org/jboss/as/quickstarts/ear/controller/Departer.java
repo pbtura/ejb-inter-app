@@ -25,6 +25,8 @@ import javax.inject.Named;
 import org.jboss.as.quickstarts.ear.ejb.Baz;
 import org.jboss.as.quickstarts.interapp.shared.Foo;
 
+import com.tura.common.service.search.SearchService;
+
 import java.io.Serializable;
 
 /**
@@ -44,6 +46,9 @@ public class Departer implements Serializable, DeparterServiceProvider
 	// @EJB
 	// private Foo fooEJB;
 	private String name = "Jane Doe";
+	
+	@EJB
+	protected SearchService searchService;
 
 	/**
 	 * Get the greeting message, customized with the name of the person to be greeted.
@@ -60,6 +65,12 @@ public class Departer implements Serializable, DeparterServiceProvider
 	public int getAge()
 	{
 		return 75;
+	}
+	
+	@Override
+	public String getEMStatus()
+	{
+		return "Entity Manager Injected? " + searchService.emExists();
 	}
 
 	public String getName()

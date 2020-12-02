@@ -32,4 +32,6 @@ public interface Foo
 	String getName();
 
 	int getAge();
+
+	public String getEMStatus();
 }

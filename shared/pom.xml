@@ -125,22 +125,6 @@
 		</dependency>
 		
 		<dependency>
-	    	<groupId>org.apache.lucene</groupId>
-	    	<artifactId>lucene-core</artifactId>
-	    	<scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.lucene</groupId>
-		    <artifactId>lucene-queryparser</artifactId>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.lucene</groupId>
-		    <artifactId>lucene-analyzers-common</artifactId>
-		    <scope>provided</scope>
-		</dependency>
-		
-		<dependency>
 		    <groupId>commons-logging</groupId>
 		    <artifactId>commons-logging</artifactId>
 		    <version>1.2</version>
@@ -152,23 +136,63 @@
 			<version>3.5</version> 
 		</dependency>
 		
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+		 	<artifactId>commons-beanutils</artifactId>
+		  	<version>1.9.4</version>
+		</dependency>
+		
     </dependencies>
 
     <build>
         <!-- Set the name of the deployment -->
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <!-- This jar is deployed to JBoss EAP as a JBoss Module, which
-                we can depend on from other deployments -->
+            
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <configuration>
-                    <skip>false</skip>
+                    <skip>true</skip>
                     <filename>${project.build.finalName}.jar</filename>
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.apache.maven.plugins
+        								</groupId>
+        								<artifactId>
+        									maven-checkstyle-plugin
+        								</artifactId>
+        								<versionRange>
+        									[3.0.0,)
+        								</versionRange>
+        								<goals>
+        									<goal>checkstyle</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
     </build>
 
 </project>

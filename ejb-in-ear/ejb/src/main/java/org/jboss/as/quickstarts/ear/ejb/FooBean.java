@@ -1,8 +1,5 @@
 package org.jboss.as.quickstarts.ear.ejb;
 
-import javax.ejb.Local;
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
 
 import org.jboss.as.quickstarts.interapp.shared.Foo;
 
@@ -35,5 +32,11 @@ public class FooBean implements Foo
 	{
 		// TODO Auto-generated method stub
 		return 75;
+	}
+
+	@Override
+	public String getEMStatus() {
+		// TODO Auto-generated method stub
+		return "?";
 	}
 }

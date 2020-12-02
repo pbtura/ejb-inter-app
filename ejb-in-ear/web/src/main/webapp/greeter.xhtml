@@ -27,13 +27,9 @@
 
     <h1>Greeter Service</h1>
     <div id="container">
-        <h:form id="response">
-            <h:panelGrid columns="2">
-                <h:outputLabel>Response:</h:outputLabel>
-                <h:outputLabel value="#{greeter.message}" />
-            </h:panelGrid>
-        </h:form>
+        
         <h:form id="greetForm">
+        <p>Status: #{greeter.getEMStatus()}</p>
             <h:panelGrid columns="3">
                 <h:outputLabel>Name:</h:outputLabel>
                 <h:inputText value="#{name}" />
@@ -41,6 +37,12 @@
                 </h:commandButton>
                  <!-- <h:commandButton id="depart" value="Depart" action="#{departer.setName(name)}">
                 </h:commandButton> -->
+            </h:panelGrid>
+        </h:form>
+        <h:form id="response">
+            <h:panelGrid columns="2">
+                <h:outputLabel>Response:</h:outputLabel>
+                <h:outputLabel value="#{greeter.message}" />
             </h:panelGrid>
         </h:form>
     </div>

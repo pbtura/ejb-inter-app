@@ -4,7 +4,7 @@
 	version="3.2">
 
 	<enterprise-beans>
-		<!-- <session>
+ 		 <session>
 			<ejb-name>PersonSearchService</ejb-name>
 			<business-local>com.tura.common.service.search.SearchService</business-local>
 			<ejb-class>com.tura.common.service.search.HibernateSearchBean</ejb-class>
@@ -14,7 +14,7 @@
 				<persistence-unit-name>PersonPersistenceUnit</persistence-unit-name>
 			</persistence-context-ref>
 		</session>
-
+<!--
  		<session>
 			<ejb-name>PersonService</ejb-name>
 

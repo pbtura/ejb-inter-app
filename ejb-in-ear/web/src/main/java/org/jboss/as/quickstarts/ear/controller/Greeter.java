@@ -88,4 +88,10 @@ public class Greeter implements Serializable, GreeterProvider
 		// TODO Auto-generated method stub
 		return departerEJB.getAge();
 	}
+
+	@Override
+	public String getEMStatus() {
+		
+		return departerEJB.getEMStatus();
+	}
 }

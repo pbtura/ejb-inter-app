@@ -61,7 +61,7 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>ejb-inter-app-shared</artifactId>
                 <version>${project.version}</version>
-                <type>ejb</type>
+                <type>pom</type>
             </dependency>
             
             <dependency>
